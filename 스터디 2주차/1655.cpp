@@ -1,17 +1,40 @@
 #include <iostream>
-#include <set>
+#include <queue>
+#include <algorithm>
 
 using namespace std;
 
-set<int> s;
+priority_queue<int> max_queue;
+priority_queue<int, vector<int>,greater<int>> min_queue;
+
 int main(){
+    int case_;
+    cin >> case_;
 
-    s.insert(1);
-    s.insert(2);
-    s.insert(3);
+    int x;
+    cin >> x;
+    max_queue.push(x);
+    cout << x;
 
+    for(int i = 1; i < case_; i++){
+        int x;
+        cin >> x;
+        if(i % 2 == 0){
+            max_queue.push(x);
+        }
+        if(i % 2 == 1){
+            min_queue.push(x);
+        }
+        if(max_queue.top() > min_queue.top()){
+            int a = max_queue.top();
+            int b = min_queue.top();
 
-    auto i = s.begin();
-    cout << i+1;
+            max_queue.pop();
+            min_queue.pop();
 
+            max_queue.push(b);
+            min_queue.push(a);
+        }
+        cout << max_queue.top() << endl;
+    }
 }
