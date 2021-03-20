@@ -8,6 +8,10 @@ stack<pair<int,int>> s;
 int audiance[500001];
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     int N;
     cin >> N;
     long long ans = 0;

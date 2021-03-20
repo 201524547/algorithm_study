@@ -8,6 +8,10 @@ priority_queue<int> max_queue;
 priority_queue<int, vector<int>,greater<int>> min_queue;
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     int case_;
     cin >> case_;
 
@@ -35,6 +39,6 @@ int main(){
             max_queue.push(b);
             min_queue.push(a);
         }
-        cout << max_queue.top() << endl;
+        cout << max_queue.top() << "\n";
     }
 }
